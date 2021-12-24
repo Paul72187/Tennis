@@ -1,4 +1,4 @@
-# Tenni
+# Tennis
 
 As a user
 So that I can understand more about today's leading tennis players
