@@ -10,4 +10,8 @@ I want to be able to see a list of the current Top 100 tennis players and their 
 
 As a user
 So that I can understand more about which playing surfaces tennis players are most successful on
-I want to be able to sse a list of the current Top 100 tennis players and their tournament victories broken down by playing surface
+I want to be able to see a list of the current Top 100 tennis players and their tournament victories broken down by playing surface
+
+As a user
+So that I can understand more about which tennis players are better servers and/or better returners
+I want to be able to access data on players' service and return games.
