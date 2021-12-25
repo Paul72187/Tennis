@@ -14,4 +14,8 @@ I want to be able to see a list of the current Top 100 tennis players and their 
 
 As a user
 So that I can understand more about which tennis players are better servers and/or better returners
-I want to be able to access data on players' service and return games.
+I want to be able to access data on players' service and return games
+
+As a user
+So that I can understand more about which tennis players perform better in certain parts of the world
+I want to be able to see data on tennis titles by country and by continent
