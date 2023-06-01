@@ -1,3 +1,5 @@
+import random
+
 class Player:
     def __init__(self, name="", ranking_points=0):
         self.name = name
@@ -19,7 +21,7 @@ class Unit:
     def __init__(self, players=(Player(), Player())):
         self.players = players
         self.score = {
-            self.players[0]: 0,  # The key is of type Player
+            self.players[0]: 0,  
             self.players[1]: 0,
         }
         self.winner = None
@@ -44,6 +46,10 @@ class Match(Unit):
         self.best_of_5 = best_of_5
         self.sets_to_play = 5 if best_of_5 else 3
         self.sets = []
+        self.simulated = False
+
+    def simulate_match(self):
+        self.simulated = True
 
     def play_set(self):
         set = Set(self, len(self.sets) + 1)
@@ -52,11 +58,9 @@ class Match(Unit):
         while set.is_running():
             set.play_game()
         set_winner = set.get_winner()
-        # Update set score for player who won set
+       
         self.score[set_winner] += 1
 
-        # If player has won 2 sets if best-of-three
-        # or 3 sets if best-of-five, match is over
         if self.score[set_winner] == self.sets_to_play // 2 + 1:
             self.winner = set_winner
 
@@ -85,57 +89,50 @@ class Set(Unit):
         self.games = []
 
     def play_game(self, tiebreak=False):
-        # Creat a Game object and append to .games list
+ 
         if tiebreak:
             game = Tiebreak(self, len(self.games) + 1)
         else:
             game = Game(self, len(self.games) + 1)
         self.games.append(game)
 
-        # Ask for user input to record who won point
         print(
             f"\nRecord point winner: "
             f"Press 1 for {self.players[0]} | "
             f"Press 2 for {self.players[1]}"
         )
         while game.is_running():
-            point_winner_idx = (
-                int(input("\nPoint Winner (1 or 2) -> ")) - 1
-            )
+            if self.match.simulated:
+                point_winner_idx = random.randint(0, 1)
+            else:
+                point_winner_idx = (
+                    int(input("\nPoint Winner (1 or 2) ->"))
+                )
             game.score_point(self.players[point_winner_idx])
             print(game)
 
-        # Game over - update set score
         self.score[game.winner] += 1
         print(f"\nGame {game.winner.name}")
         print(f"\nCurrent score: {self.match}")
 
-        # Check stage within set
-        # If it's an early stage of the set and no one
-        # reached 6 or 7 games, there's nothing else to do
-        # and method can return
         if (
             6 not in self.score.values()
             and 7 not in self.score.values()
         ):
             return
-        # Rest deals with latter stages of set when at least
-        # one player is on 6 games
-        # Check for 6-6 score
+
         if list(self.score.values()) == [6, 6]:
             self.play_game(tiebreak=True)
             return
-        # …7-5 or 7-6 score (if tiebreak was played, score
-        # will be 7-6)
+        
         for player in self.players:
-            # player reaches 7 games
+
             if self.score[player] == 7:
                 self.winner = player
                 return
-            # player reaches 6 games
-            # and 6-6 and 7-6 already ruled out
+
             if self.score[player] == 6:
-                # Exclude 6-5 scenario
+
                 if 5 not in self.score.values():
                     self.winner = player
 
@@ -151,7 +148,7 @@ class Set(Unit):
         )
 
 class Game(Unit):
-    points = 0, 15, 30, 40, "Ad"  # Class attribute
+    points = 0, 15, 30, 40, "Ad"  
 
     def __init__(self, set: Set, game_number=0):
         super().__init__(set.match.players)
@@ -166,26 +163,26 @@ class Game(Unit):
             return
         game_won = False
         current_point = self.score[player]
-        # Player who wins point was on 40
+
         if self.score[player] == 40:
-            # Other player is on Ad
+
             if "Ad" in self.score.values():
-                # Update both players' scores to 40
+ 
                 for each_player in self.players:
                     self.score[each_player] = 40
-            # Other player is also on 40 (deuce)
+
             elif list(self.score.values()) == [40, 40]:
-                # Point winner goes to Ad
+
                 self.score[player] = "Ad"
-            # Other player is on 0, 15, or 30
+
             else:
-                # player wins the game
+
                 game_won = True
-        # Player who wins point was on Ad
+
         elif self.score[player] == "Ad":
-            # player wins the game
+
             game_won = True
-        # Player who wins point is on 0, 15, or 30
+
         else:
             self.score[player] = Game.points[
                 Game.points.index(current_point) + 1
@@ -215,12 +212,12 @@ class Tiebreak(Game):
               "Error: You tried to add a point to a completed game"
             )
             return
-        # Add point to player
+
         self.score[player] += 1
-        # Tiebreak over only if player has 7 or more points
-        # and there's at least a 2 point-gap
+
         if (
             self.score[player] >= 7
             and self.score[player] - min(self.score.values()) >= 2
         ):
             self.winner = player
+            

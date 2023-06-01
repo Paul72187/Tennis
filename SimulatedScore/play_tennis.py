@@ -5,4 +5,5 @@ djokovic = Player("Novak Djokovic", 2000)
 
 test_match = Match(nadal, djokovic)
 
+test_match.simulate_match()
 test_match.play_match()
