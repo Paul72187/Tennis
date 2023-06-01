@@ -23,8 +23,7 @@ class Set:
         self.set_number = set_number
 
 class Game:
-    points = 0, 15, 30, 40, "Ad"  
-
+    points = 0, 15, 30, 40, "Ad"  # Class attribute
     def __init__(self, set: Set, game_number=0):
         self.set = set
         self.game_number = game_number
@@ -33,9 +32,29 @@ class Game:
             self.players[0]: 0,  
             self.players[1]: 0,
         }
-
     def score_point(self, player: Player):
         current_point = self.score[player]
-        self.score[player] = Game.points[
-            Game.points.index(current_point) + 1
-        ]
+      
+        if self.score[player] == 40:
+       
+            if "Ad" in self.score.values():
+             
+                for each_player in self.players:
+                    self.score[each_player] = 40
+           
+            elif list(self.score.values()) == [40, 40]:
+             
+                self.score[player] = "Ad"
+           
+            else:
+              
+                self.score[player] = "Game"
+        
+        elif self.score[player] == "Ad":
+            
+            self.score[player] = "Game"
+      
+        else:
+            self.score[player] = Game.points[
+                Game.points.index(current_point) + 1
+            ]
