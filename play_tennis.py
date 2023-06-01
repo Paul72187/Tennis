@@ -7,13 +7,7 @@ test_match = Match(nadal, djokovic)
 test_set = Set(test_match)
 test_game = Game(test_set)
 
-print(test_game.score)
 test_game.score_point(nadal)
-print(test_game.score)
 
-test_game.score_point(nadal)
-print(test_game.score)
-
-test_game.score_point(djokovic)
-print(test_game.score)
-
+print(test_game)
+print(repr(test_game))
