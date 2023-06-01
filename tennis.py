@@ -52,10 +52,12 @@ class Set(Unit):
         self.games = []
 
     def play_game(self):
+        
         game = Game(self, len(self.games) + 1)
         self.games.append(game)
 
-        print (
+       
+        print(
             f"\nRecord point winner: "
             f"Press 1 for {self.players[0]} | "
             f"Press 2 for {self.players[1]}"
@@ -64,7 +66,10 @@ class Set(Unit):
             point_winner_idx = (
                 int(input("\nPoint Winner (1 or 2) -> ")) - 1
             )
+            game.score_point(self.players[point_winner_idx])
+            print(game)
 
+    
         self.score[game.winner] += 1
         print(f"\nGame {game.winner.name}")
         print(f"\nCurrent score: {self}")
@@ -122,3 +127,4 @@ class Game(Unit):
             f"Game(set={self.set!r}, "
             f"game_number={self.game_number})"
         )
+  
