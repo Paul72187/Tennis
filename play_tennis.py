@@ -1,14 +1,19 @@
-from tennis import Player, Match
+from tennis import Player, Match, Set, Game
 
 nadal = Player("Rafael Nadal", 2000)
 djokovic = Player("Novak Djokovic", 2000)
 
-print(nadal.name)
-print(nadal.ranking_points)
-print(djokovic.name)
-print(djokovic.ranking_points)
+test_match = Match(nadal, djokovic)
+test_set = Set(test_match)
+test_game = Game(test_set)
 
-nadal.update_ranking_points(125)
-print(nadal.ranking_points)
-djokovic.update_ranking_points(75)
-print(djokovic.ranking_points)
+print(test_game.score)
+test_game.score_point(nadal)
+print(test_game.score)
+
+test_game.score_point(nadal)
+print(test_game.score)
+
+test_game.score_point(djokovic)
+print(test_game.score)
+
