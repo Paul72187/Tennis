@@ -21,3 +21,9 @@ class Set:
     def __init__(self, match: Match, set_number=0):
         self.match = match
         self.set_number = set_number
+
+class Game:
+    def __init__(self, set: Set, game_number=0):
+        self.set = set
+        self.game_number = game_number
+        
