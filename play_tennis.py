@@ -7,7 +7,5 @@ test_match = Match(nadal, djokovic)
 test_set = Set(test_match)
 test_game = Game(test_set)
 
-test_game.score_point(nadal)
-
-print(test_game)
-print(repr(test_game))
+print(f"{nadal}")
+print(f"{nadal!r}")
