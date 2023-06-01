@@ -23,38 +23,48 @@ class Set:
         self.set_number = set_number
 
 class Game:
-    points = 0, 15, 30, 40, "Ad"  # Class attribute
+    points = 0, 15, 30, 40, "Ad"  
     def __init__(self, set: Set, game_number=0):
         self.set = set
         self.game_number = game_number
         self.players = self.set.match.players
         self.score = {
-            self.players[0]: 0,  
+            self.players[0]: 0, 
             self.players[1]: 0,
         }
+        self.winner = None
     def score_point(self, player: Player):
+        if self.winner:
+            print(
+              "Error: You tried to add a point to a completed game"
+            )
+            return
+        game_won = False
         current_point = self.score[player]
-      
-        if self.score[player] == 40:
        
+        if self.score[player] == 40:
+         
             if "Ad" in self.score.values():
-             
+                
                 for each_player in self.players:
                     self.score[each_player] = 40
-           
+          
             elif list(self.score.values()) == [40, 40]:
-             
+               
                 self.score[player] = "Ad"
-           
-            else:
-              
-                self.score[player] = "Game"
-        
-        elif self.score[player] == "Ad":
             
-            self.score[player] = "Game"
-      
+            else:
+               
+                game_won = True
+    
+        elif self.score[player] == "Ad":
+           
+            game_won = True
+       
         else:
             self.score[player] = Game.points[
                 Game.points.index(current_point) + 1
             ]
+        if game_won:
+            self.score[player] = "Game"
+            self.winner = player
