@@ -5,6 +5,4 @@ djokovic = Player("Novak Djokovic", 2000)
 
 test_match = Match(nadal, djokovic)
 
-while test_match.is_running():
-    test_match.play_set()
-
+test_match.play_match()
