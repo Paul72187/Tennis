@@ -51,9 +51,12 @@ class Set(Unit):
         self.set_number = set_number
         self.games = []
 
-    def play_game(self):
+    def play_game(self, tiebreak=False):
         
-        game = Game(self, len(self.games) + 1)
+        if tiebreak:
+            game = Tiebreak(self, len(self.games) + 1)
+        else:
+            game = Game(self, len(self.games) + 1)
         self.games.append(game)
 
        
@@ -81,7 +84,8 @@ class Set(Unit):
             return
 
         if list(self.score.values()) == [6, 6]:
-            ...
+            self.play_game(tiebreak=True)
+            return
        
         for player in self.players:
 
@@ -154,7 +158,25 @@ class Game(Unit):
 
     def __repr__(self):
         return (
-            f"Game(set={self.set!r}, "
+            f"{self.__class__.__name__} (set={self.set!r}, "
             f"game_number={self.game_number})"
         )
-  
+
+class Tiebreak(Game):
+    def __init__(self, set: Set, game_number=0):
+        super().__init__(set, game_number)
+
+    def score_point(self, player: Player):
+        if self.winner:
+            print(
+                "Error: You tried to add a point to a completed game."
+            )
+            return
+        
+        self.score[player] += 1
+
+        if (
+            self.score[player] >= 7
+            and self.score[player] - min(self.score.values()) >= 2
+        ):
+            self.winner = player
