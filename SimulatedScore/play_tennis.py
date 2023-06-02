@@ -27,7 +27,7 @@ for _ in range (n_simulations):
 print(winners)
 print(n_sets)
 
-ranking_percentages = range(40, 61)
+ranking_percentages = range(40, 60)
 for ranking_percentage in ranking_percentages:
     nadal = Player("Rafael Nadal", ranking_percentage)
     djokovic = Player("Novak Djokovic", 100-ranking_percentage)
