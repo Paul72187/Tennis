@@ -1,1 +1,50 @@
+This tennis tournament comprises 32 players (ranked in the top 32 of the ATP World Tour Rankings on 12th June 2023, immediately after the French Open).
 
+In total, 31 matches will be played in this tournament.
+
+The eventual champion of this tournament will have to successfully navigate their way through 5 matches to win.
+
+The tournament format is as follows:
+
+Round of 32 (1st Round)
+Match 1 = (1) Novak Djokovic vs (32) Tomas Martin Etcheverry
+Match 2 = (2) Carlos Alcaraz vs (31) Sebastian Korda
+Match 3 = (3) Daniil Medvedev vs (30) Nicolas Jarry
+Match 4 = (4) Casper Ruud vs (29) Denis Shapovalov
+Match 5 = (5) Stefanos Tsitsipas vs (28) Daniel Evans
+Match 6 = (6) Holger Rune vs (27) Yoshihito Nishioka
+Match 7 = (7) Andrey Rublev vs (26) Grigor Dimitrov
+Match 8 = (8) Taylor Fritz vs (25) Nick Kyrgios
+Match 9 = (9) Jannik Sinner vs (24) Jan-Lennard Struff
+Match 10 = (10) Karen Khachanov vs (23) Alexander Zverev
+Match 11 = (11) Felix Auger-Aliassime vs (22) Roberto Bautist-Agut
+Match 12 = (12) Frances Tiafoe vs (21) Matteo Berrettini
+Match 13 = (13) Cameron Norrie vs (20) Francisco Cerundolo
+Match 14 = (14) Hubert Hurkacz vs (19) Pablo Carreno-Busta
+Match 15 = (15) Borna Coric vs (18) Alex De Minaur
+Match 16 = (16) Tommy Paul vs (17) Lorenzo Musetti
+
+Round of 16 (2nd Round)
+Match 17 = winner of Match 1 vs winner of Match 16
+Match 18 = winner of Match 2 vs winner of Match 15
+Match 19 = winner of Match 3 vs winner of Match 14
+Match 20 = winner of Match 4 vs winner of Match 13
+Match 21 = winner of Match 5 vs winner of Match 12
+Match 22 = winner of Match 6 vs winner of Match 11
+Match 23 = winner of Match 7 vs winner of Match 10
+Match 24 = winner of Match 8 vs winner of Match 9
+
+Round of 8 (Quarter Finals)
+Match 25 = winner of Match 17 vs winner of Match 24
+Match 26 = winner of Match 18 vs winner of Match 23
+Match 27 = winner of Match 19 vs winner of Match 22
+Match 28 = winner of Match 20 vs winner of Match 21
+
+Round of 4 (Semi Finals)
+Match 29 = winner of Match 25 vs winner of Match 28
+Match 30 = winner of Match 26 vs winner of Match 27
+
+Round of 2 (Final)
+Match 31 = winner of Match 29 vs winner of Match 30
+
+Champion = winner of Match 31
