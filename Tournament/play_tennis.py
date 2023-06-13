@@ -1,0 +1,117 @@
+from tennis import Player, Match
+
+djokovic = Player("Novak Djokovic", 7595)
+alcaraz = Player("Carlos Alcaraz", 7175)
+medvedev = Player("Daniil Medvedev", 6100)
+ruud = Player("Casper Ruud", 4960)
+tsitsipas = Player("Stefanos Tsitsipas", 4920)
+rune = Player("Holger Rune", 4375)
+rublev = Player("Andrey Rublev", 4000)
+fritz = Player("Taylor Fritz", 3515)
+sinner = Player("Jannik Sinner", 3300)
+khachanov = Player("Karen Khachanov", 3125)
+auger_aliassime = Player("Felix Auger-Aliassime", 2850)
+tiafoe = Player("Frances Tiafoe", 2835)
+norrie = Player("Cameron Norrie", 2565)
+hurkacz = Player("Hubert Hurkacz", 2435)
+coric = Player("Borna Coric", 2430)
+paul = Player("Tommy Paul", 2205)
+musetti = Player("Lorenzo Musetti", 2095)
+de_minaur = Player("Alex De Minaur", 1905)
+carreno_busta = Player("Pablo Carreno Busta", 1730)
+cerundolo = Player("Francisco Cerundolo", 1655)
+berrettini = Player("Matteo Berrettini", 1582)
+bautista_agut = Player("Roberto Bautista Agut", 1530)
+zverev = Player("Alexander Zverev", 1450)
+struff = Player("Jan-Lennard Struff", 1437)
+kyrgios = Player("Nick Kyrgios", 1375)
+dimitrov = Player("Grigor Dimitrov", 1365)
+nishioka = Player("Yoshihito Nishioka", 1351)
+evans = Player("Daniel Evans", 1331)
+shapovalov = Player("Denis Shapovalov", 1290)
+jarry = Player("Nicolas Jarry", 1276)
+korda = Player("Sebastian Korda", 1220)
+etcheverry = Player("Tomas Martin Etcheverry", 1201)
+
+
+'''Round of 32'''
+test_match1 = Match(djokovic, etcheverry)
+test_match2 = Match(alcaraz, korda)
+test_match3 = Match(medvedev, jarry)
+test_match4 = Match(ruud, shapovalov)
+test_match5 = Match(tsitsipas, evans)
+test_match6 = Match(rune, nishioka)
+test_match7 = Match(rublev, dimitrov)
+test_match8 = Match(fritz, kyrgios)
+test_match9 = Match(sinner, struff)
+test_match10 = Match(khachanov, zverev)
+test_match11 = Match(auger_aliassime, bautista_agut)
+test_match12 = Match(tiafoe, berrettini)
+test_match13 = Match(norrie, cerundolo)
+test_match14 = Match(hurkacz, carreno_busta)
+test_match15 = Match(coric, de_minaur)
+test_match16 = Match(paul, musetti)
+
+print(test_match1.play_match())
+print(test_match2.play_match())
+print(test_match3.play_match())
+print(test_match4.play_match())
+print(test_match5.play_match())
+print(test_match6.play_match())
+print(test_match7.play_match())
+print(test_match8.play_match())
+print(test_match9.play_match())
+print(test_match10.play_match())
+print(test_match11.play_match())
+print(test_match12.play_match())
+print(test_match13.play_match())
+print(test_match14.play_match())
+print(test_match15.play_match())
+print(test_match16.play_match())
+
+
+
+'''Round of 16'''
+test_match17 = Match(test_match1.winner, test_match16.winner)
+test_match17.play_match()
+test_match18 = Match(test_match2.winner, test_match15.winner)
+test_match18.play_match()
+test_match19 = Match(test_match3.winner, test_match14.winner)
+test_match19.play_match()
+test_match20 = Match(test_match4.winner, test_match13.winner)
+test_match20.play_match()
+test_match21 = Match(test_match5.winner, test_match12.winner)
+test_match21.play_match()
+test_match22 = Match(test_match6.winner, test_match11.winner)
+test_match22.play_match()
+test_match23 = Match(test_match7.winner, test_match10.winner)
+test_match23.play_match()
+test_match24 = Match(test_match8.winner, test_match9.winner)
+test_match24.play_match()
+
+
+'''Round of 8 (Quarter Finals)'''
+test_match25 = Match(test_match17.winner, test_match24.winner)
+test_match25.play_match()
+test_match26 = Match(test_match18.winner, test_match23.winner)
+test_match26.play_match()
+test_match27 = Match(test_match19.winner, test_match22.winner)
+test_match27.play_match()
+test_match28 = Match(test_match20.winner, test_match21.winner)
+test_match28.play_match()
+
+
+'''Round of 4 (Semi Finals)'''
+test_match29 = Match(test_match25.winner, test_match28.winner)
+test_match29.play_match()
+test_match30 = Match(test_match26.winner, test_match27.winner)
+test_match30.play_match()
+
+
+'''Round of 2 (Final)'''
+test_match31 = Match(test_match29.winner, test_match30.winner)
+test_match31.play_match()
+
+
+'''Champion'''
+print(f"The tournament champion is: {test_match31.winner}")
