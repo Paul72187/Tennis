@@ -18,6 +18,12 @@ The next feature takes into account the ranking points of the two players contes
 
 The final feature uses the matplotlib module to graphically plot the probability of Player1 winning the match (in one graph) and the probability of Player1 winning the match in 3 sets (straight sets) (in the other graph).
 
+## 3. Aim (Tournament)
+
+The Tournament is designed to replicate the format of a tennis tournament that features 32 players. The draw comprises the top 32 ranked players in the world (on 12th June 2023). The draw is made according to player rankings. In the round of 32 (first round), there are 16 matches, in which the top ranked player plays the player ranked 32nd, the second ranked player plays the player ranked 31st, the third player plays the player ranked 30th and so on. In the round of 16 (second round), the winner from the match featuring the top ranked player plays the winner of the match featuring the 16th ranked player, the winner from the match featuring the second ranked player plays the winner from the match featuring the 15th ranked player and so on. A full list of how the tournament plays out is detailed in the Tournament.txt file. Following this process, we reach the quarter finals, semi finals and final and unearth the eventual tournament champion.
+
+Users of the Tournament section of the app, enter a score manually to determine the winner of each match, played over the best of 5 sets. This follows the format in section 1 above, when playing the ManualScore.
+
 ## How the app was built
 
 The app was built using Python.
