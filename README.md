@@ -33,3 +33,5 @@ Which version?
 1. To play the ManualScore version, cd into the ManualScore folder and run python3 play_tennis.py
 
 2. To play the SimulatedScore verison, cd into the SimulatedScore folder and run python3 play_tennis.py
+   
+3. To play the Tournament version, cd into the Tournament folder and run python3 play_tennis.py
