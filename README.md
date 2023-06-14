@@ -2,7 +2,7 @@
 
 ## Overview
 
-This tennis app is split into two parts - 1. ManualScore and 2. SimulatedScore.
+This tennis app is split into three parts - 1. ManualScore, 2. SimulatedScore and 3. Tournament.
 
 ## 1. Aim (ManualScore)
 
